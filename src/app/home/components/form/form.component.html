@@ -1,0 +1,20 @@
+<div class="log-form">
+    <h2>Login to your account</h2>
+    <!-- <form>
+      <input [formControl]="emailField" type="email" placeholder="correo" />
+      {{ emailField.valid }} - {{ emailField.invalid }}
+      <input type="password" placeholder="password" />
+      <br>
+      <button type="submit" class="btn">Login</button>
+      <br>
+      <a class="forgot" href="#">Forgot Username?</a>
+    </form> -->
+    <form [formGroup]="form">
+        <input formControlName="email" placeholder="email">
+        <input formControlName="subject" placeholder="asunto">
+        <p *ngIf="form.get('subject').hasError('required') && form.get('subject').dirty">Asunto es requerido</p>
+        <p *ngIf="form.get('subject').hasError('is_test')">Asunto no puede ser prueba</p>
+        <textarea formControlName="description"></textarea>
+    </form>
+    {{ form.valid }}
+</div>

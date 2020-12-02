@@ -1,0 +1,33 @@
+<h1 appHighlight style="padding-top: 50px;">Demo</h1>
+<input type="text" [(ngModel)]="prueba">
+<p>{{ prueba }}</p>
+
+<div *ngIf="prueba === 'saludo'">
+    <p>Hola</p>
+</div>
+<div *ngIf="prueba === 'saludo2'">
+    <p>Hello</p>
+</div>
+
+<div [ngSwitch]="prueba">
+    <p *ngSwitchCase="'saludo'">Hola</p>
+    <p *ngSwitchCase="'saludo2'">Hello</p>
+    <p *ngSwitchDefault>XXXXXXXX</p>
+</div>
+
+<ul>
+    <li *ngFor="let fruit of fruits; index as i">
+        {{i}} - {{ fruit.nombre }} = {{ fruit.precio }}
+        <br>
+        <img [src]="fruit.img" alt="fruit" width="50px">
+        <button (click)="deleteFruit(i)">Eliminar</button>
+    </li>
+</ul>
+
+<button (click)="addFruit()">Agregar fruta</button>
+
+{{ prueba | uppercase }}
+{{ prueba | slice:0:2 }}
+{{ valor | currency }}
+{{ hoy | date }}
+{{ valor | iva }}

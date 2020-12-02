@@ -1,0 +1,6 @@
+<h1 style="padding-top: 50px;">Mis categorias</h1>
+<select name="sltcategoria" #mySelect (change)='onOptionsSelected(mySelect.value)'>
+    <option *ngFor="let category of categories" [value]="category.idCategoria">
+        {{category.nombreCategoria}}
+    </option>
+</select>
